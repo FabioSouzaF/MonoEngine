@@ -1,0 +1,12 @@
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Engine.Runtime.exe
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Engine.Runtime.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Engine.Runtime.deps.json
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Engine.Runtime.runtimeconfig.json
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Engine.Runtime.pdb
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/MonoGame.Framework.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Newtonsoft.Json.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/NVorbis.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/openal.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/SDL2.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Engine.Core.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/win-x64/Engine.Core.pdb

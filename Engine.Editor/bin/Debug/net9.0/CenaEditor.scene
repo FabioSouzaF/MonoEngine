@@ -1,0 +1,101 @@
+{
+  "$id": "1",
+  "ActiveCamera": {
+    "$id": "2",
+    "Zoom": 0.5,
+    "Origin": "0.5, 0.5",
+    "Enabled": true
+  },
+  "Name": "Cena Vazia",
+  "RootObjects": [
+    {
+      "$id": "3",
+      "Id": "52094856-234a-4bc7-8a79-054800621b31",
+      "Name": "Camera",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "4",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$ref": "2"
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "5",
+      "Id": "cd2ca773-af0f-43dc-baf4-ffc8850d78cd",
+      "Name": "Dinamite",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "6",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 0.5,
+            "Y": 0.5,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "7",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "Dynamite.png",
+          "Color": {
+            "R": 255,
+            "G": 255,
+            "B": 255,
+            "A": 255
+          },
+          "Origin": "0.5, 0.5",
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -254.5,
+              "Y": -254.5,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    }
+  ]
+}

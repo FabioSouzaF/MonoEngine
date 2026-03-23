@@ -1,0 +1,725 @@
+{
+  "$id": "1",
+  "Name": "Camera Test Scene",
+  "RootObjects": [
+    {
+      "$id": "2",
+      "Id": "a57818b9-c2d4-4330-92a2-b1170952910f",
+      "Name": "Main Camera",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "3",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 0.0,
+            "Y": -55.00012,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 1.0,
+            "Y": 1.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "4",
+          "$type": "Engine.Core.Components.Camera, Engine.Core",
+          "Zoom": 1.0,
+          "Origin": "0.5, 0.5",
+          "Enabled": true
+        },
+        {
+          "$id": "5",
+          "$type": "Engine.Runtime.CameraController, Engine.Runtime",
+          "Speed": 200.0,
+          "ZoomSpeed": 1.0,
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "6",
+      "Id": "6209d7c5-cee9-4add-99d8-d40324ebc6dc",
+      "Name": "Player",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "7",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 50.0,
+            "Y": 50.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "8",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 255,
+            "G": 0,
+            "B": 0,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -25.0,
+              "Y": -25.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 0.0,
+              "Y": 0.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "9",
+      "Id": "d4ea4d28-f0e1-43eb-a64e-dc113412a791",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "10",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": -500.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "11",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -520.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": -500.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "12",
+      "Id": "d7778603-3f9d-4e95-b6ac-e670203037b9",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "13",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": -400.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "14",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -420.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": -400.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "15",
+      "Id": "fea7afab-876f-4daf-84f9-ad97dfb80ca3",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "16",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": -300.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "17",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -320.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": -300.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "18",
+      "Id": "ab8ec547-24b1-4cb4-b28a-6d49b403467c",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "19",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": -200.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "20",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -220.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": -200.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "21",
+      "Id": "4ce804cd-a868-406a-90d4-8d3451760bac",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "22",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": -100.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "23",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -120.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": -100.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "24",
+      "Id": "9a235079-22a8-4bac-bee7-73b5ddc22ef1",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "25",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 0.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "26",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": -20.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 0.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "27",
+      "Id": "0d14964e-235e-405d-b2d9-9be362348aa9",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "28",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 100.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "29",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": 80.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 100.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "30",
+      "Id": "e0b5314a-105a-49a5-b910-5731b6347a2b",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "31",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 200.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "32",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": 180.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 200.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "33",
+      "Id": "2c75cc9d-0466-4000-b0c0-064c9867645b",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "34",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 300.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "35",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": 280.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 300.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "36",
+      "Id": "ff291d29-54c9-4823-a480-4dbad37c2c4d",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "37",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 400.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "38",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": 380.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 400.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    },
+    {
+      "$id": "39",
+      "Id": "2585fdf3-aa09-425d-b6e6-ce8513dbba07",
+      "Name": "New Object",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "40",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": {
+            "X": 500.0,
+            "Y": 200.0,
+            "Z": 0.0
+          },
+          "LocalRotation": {
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": {
+            "X": 40.0,
+            "Y": 40.0,
+            "Z": 1.0
+          },
+          "Enabled": true
+        },
+        {
+          "$id": "41",
+          "$type": "Engine.Core.Components.SpriteRenderer, Engine.Core",
+          "TexturePath": "/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/test_square.png",
+          "Origin": "0.5, 0.5",
+          "Color": {
+            "R": 128,
+            "G": 128,
+            "B": 128,
+            "A": 255
+          },
+          "OrderInLayer": 0,
+          "Bounds": {
+            "Min": {
+              "X": 480.0,
+              "Y": 180.0,
+              "Z": 0.0
+            },
+            "Max": {
+              "X": 500.0,
+              "Y": 200.0,
+              "Z": 0.0
+            }
+          },
+          "Enabled": true
+        }
+      ],
+      "Children": []
+    }
+  ],
+  "ActiveCamera": {
+    "$ref": "4"
+  }
+}

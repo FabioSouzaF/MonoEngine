@@ -1,0 +1,53 @@
+{
+  "$id": "1",
+  "Name": "Debug Scene 3D",
+  "RootObjects": [
+    {
+      "$id": "2",
+      "Id": "d9fa4b9b-7a10-4091-aa63-bc2c23ea75e6",
+      "Name": "TankBody",
+      "IsActive": true,
+      "Components": [
+        {
+          "$id": "3",
+          "$type": "Engine.Core.Entities.Transform, Engine.Core",
+          "LocalPosition": "0, 0, 0",
+          "LocalRotation": {
+            "$id": "4",
+            "X": 0.0,
+            "Y": 0.0,
+            "Z": 0.0,
+            "W": 1.0
+          },
+          "LocalScale": "1, 1, 1",
+          "Enabled": true
+        }
+      ],
+      "Children": [
+        {
+          "$id": "5",
+          "Id": "9ba62aee-ae3a-4992-9e80-0ae7983f7db9",
+          "Name": "TankTurret",
+          "IsActive": true,
+          "Components": [
+            {
+              "$id": "6",
+              "$type": "Engine.Core.Entities.Transform, Engine.Core",
+              "LocalPosition": "0, 2, 0",
+              "LocalRotation": {
+                "$id": "7",
+                "X": 0.0,
+                "Y": 0.0,
+                "Z": 0.0,
+                "W": 1.0
+              },
+              "LocalScale": "0.5, 0.5, 0.5",
+              "Enabled": true
+            }
+          ],
+          "Children": []
+        }
+      ]
+    }
+  ]
+}

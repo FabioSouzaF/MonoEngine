@@ -1,0 +1,12 @@
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Engine.Runtime
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Engine.Runtime.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Engine.Runtime.deps.json
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Engine.Runtime.runtimeconfig.json
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Engine.Runtime.pdb
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/MonoGame.Framework.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Newtonsoft.Json.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/NVorbis.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/libopenal.so
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/libSDL2-2.0.so.0
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Engine.Core.dll
+/home/fabio/Documentos/MonoProjects/TesteBuild/Build/Engine.Core.pdb
