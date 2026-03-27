@@ -566,7 +566,7 @@
       "AlexMacocian.MonoGame.ImGuiNet >= 1.1.0",
       "Engine.Core >= 1.0.0",
       "ImGui.NET >= 1.90.1.1",
-      "MonoGame.Content.Builder.Task >= 3.8.*",
+      "MonoGame.Content.Builder.Task >= 3.8.4.1",
       "MonoGame.Framework.DesktopGL >= 3.8.*"
     ]
   },
@@ -628,7 +628,7 @@
           },
           "MonoGame.Content.Builder.Task": {
             "target": "Package",
-            "version": "[3.8.*, )"
+            "version": "[3.8.4.1, )"
           },
           "MonoGame.Framework.DesktopGL": {
             "target": "Package",

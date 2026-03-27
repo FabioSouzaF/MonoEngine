@@ -71,6 +71,11 @@ public static class SceneSerializer
             TypeNameHandling = TypeNameHandling.Auto,
             ReferenceLoopHandling = ReferenceLoopHandling.Ignore,
             PreserveReferencesHandling = PreserveReferencesHandling.Objects,
+            
+            // --- A MÁGICA QUE SALVA A ENGINE ---
+            // Força o JSON a substituir as listas/arrays em vez de somar os itens duplicados!
+            ObjectCreationHandling = ObjectCreationHandling.Replace, 
+            
             SerializationBinder = new EngineSerializationBinder(),
             Error = delegate(object sender, Newtonsoft.Json.Serialization.ErrorEventArgs args)
             {

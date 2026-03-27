@@ -28,6 +28,13 @@ namespace Engine.Editor
         public static bool IsPlaying { get; set; } = false;
         
         // A "fotografia" da cena para restaurar quando fizermos Stop
-        public static string SceneBackupJson { get; set; } = "";
+        public static string SceneSnapshot { get; set; } = "";
+
+        // Indica se a cena atual possui alterações não salvas
+        public static bool IsDirty { get; set; } = false;
+        
+        // A "tinta" atual do nosso pincel de Tilemap (0 = primeiro tile, -1 = borracha)
+        public static int SelectedTileBrush { get; set; } = 0;
+        
     }
 }

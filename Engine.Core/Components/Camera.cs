@@ -30,24 +30,26 @@ public class Camera : Component
             SceneManager.ActiveScene.ActiveCamera = this;
         }
     }
-    
+
     public Matrix GetViewMatrix()
     {
-        var transform = Transform;
-        
-        // Agora a câmera lê a resolução real e atualizada diretamente do nosso Gerenciador de Tela!
-        float width = Screen.Width > 0 ? Screen.Width : 1280;
-        float height = Screen.Height > 0 ? Screen.Height : 720;
+        // O Centro da Tela (para o Zoom ir para o meio e não para o canto)
+        // No Editor, você pode pegar o tamanho do RenderTarget atual!
+        float centerX = 1280 / 2f; 
+        float centerY = 720 / 2f;  
 
-        // O centro da tela
-        var screenCenter = new Vector3(width * Origin.X, height * Origin.Y, 0);
-
-        // A posição da câmera no mundo
-        var pos = transform.Position;
-        
-        return Matrix.CreateTranslation(-pos) *
-               Matrix.CreateRotationZ(-transform.LocalRotation.Z) * Matrix.CreateScale(new Vector3(Zoom, Zoom, 1)) *
-               Matrix.CreateTranslation(screenCenter);
+        return 
+            // 1. Move a câmera para a posição do Transform (Ignoramos o Z, usamos só X e Y)
+            Matrix.CreateTranslation(new Vector3(-Transform.LocalPosition.X, -Transform.LocalPosition.Y, 0.0f)) *
+                
+            // 2. Rotaciona a câmera (Eixo Z)
+            Matrix.CreateRotationZ(Microsoft.Xna.Framework.MathHelper.ToRadians(Transform.LocalEulerAngles.Z)) *
+                
+            // 3. Aplica o Zoom por Escala (O segredo do 2D!)
+            Matrix.CreateScale(new Vector3(Zoom, Zoom, 1.0f)) *
+                
+            // 4. Centraliza a câmera na tela
+            Matrix.CreateTranslation(new Vector3(centerX, centerY, 0.0f));
     }
 
     public Vector2 ScreenToWorld(Vector2 screenPosition)

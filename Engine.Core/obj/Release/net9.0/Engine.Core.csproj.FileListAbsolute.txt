@@ -10,3 +10,4 @@
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Core/obj/Release/net9.0/refint/Engine.Core.dll
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Core/obj/Release/net9.0/Engine.Core.pdb
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Core/obj/Release/net9.0/ref/Engine.Core.dll
+/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Core/obj/Release/net9.0/Engine.Core.sourcelink.json

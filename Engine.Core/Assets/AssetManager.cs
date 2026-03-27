@@ -1,6 +1,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.IO.Compression;
+using System; // Necessário para o Console e AppDomain
 using Microsoft.Xna.Framework.Graphics;
 
 namespace Engine.Core.Assets
@@ -10,15 +11,19 @@ namespace Engine.Core.Assets
         private static GraphicsDevice _graphicsDevice;
         private static Dictionary<string, Texture2D> _textures = new Dictionary<string, Texture2D>();
         
-        // Mantém o nosso "Cofre" aberto na memória
+        // --- A MÁGICA AQUI ---
+        // Agora é público! O Editor pode mudar isso a qualquer momento.
+        public static string ProjectRootPath { get; set; } = AppDomain.CurrentDomain.BaseDirectory;
+        
         private static ZipArchive _pakArchive;
 
+        // O Initialize volta a ser simples, apenas para a placa de vídeo e para o Runtime (.pak)
         public static void Initialize(GraphicsDevice graphicsDevice)
         {
             _graphicsDevice = graphicsDevice;
             
             // Se estivermos no jogo final, abrimos o arquivo .pak!
-            string pakPath = Path.Combine(System.AppDomain.CurrentDomain.BaseDirectory, "Assets.pak");
+            string pakPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "Assets.pak");
             if (File.Exists(pakPath))
             {
                 _pakArchive = ZipFile.OpenRead(pakPath);
@@ -27,16 +32,14 @@ namespace Engine.Core.Assets
 
         public static Texture2D LoadTexture(string path)
         {
+            if (string.IsNullOrEmpty(path)) return null;
             if (_textures.ContainsKey(path)) return _textures[path];
 
             Texture2D texture = null;
 
             if (_pakArchive != null)
             {
-                // MODO RUNTIME: Lendo de dentro do cofre .pak
-                // Limpa o "Assets/" da string para procurar apenas o nome do arquivo dentro do zip
                 string entryName = path.Replace("Assets/", "").Replace("Assets\\", "");
-                
                 var entry = _pakArchive.GetEntry(entryName);
                 if (entry != null)
                 {
@@ -48,13 +51,28 @@ namespace Engine.Core.Assets
             }
             else
             {
-                // MODO EDITOR: Lendo da pasta normal de desenvolvimento
-                if (File.Exists(path))
+                string fileName = Path.GetFileName(path);
+                
+                // Agora ele SEMPRE usa o ProjectRootPath atualizado!
+                string fullPath = Path.Combine(ProjectRootPath, "Assets", fileName);
+                
+                if (File.Exists(fullPath))
                 {
-                    using (var stream = new FileStream(path, FileMode.Open))
+                    using (var stream = new FileStream(fullPath, FileMode.Open, FileAccess.Read))
                     {
                         texture = Texture2D.FromStream(_graphicsDevice, stream);
                     }
+                }
+                else if (File.Exists(path)) 
+                {
+                    using (var stream = new FileStream(path, FileMode.Open, FileAccess.Read))
+                    {
+                        texture = Texture2D.FromStream(_graphicsDevice, stream);
+                    }
+                }
+                else
+                {
+                    Console.WriteLine($"[AVISO] Textura não encontrada no disco: {fullPath}");
                 }
             }
 
@@ -64,7 +82,6 @@ namespace Engine.Core.Assets
                 return texture;
             }
 
-            System.Console.WriteLine($"[AVISO] Textura não encontrada: {path}");
             return null;
         }
     }

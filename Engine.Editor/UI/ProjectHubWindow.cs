@@ -1,6 +1,7 @@
 using System;
 using System.IO;
 using System.Numerics;
+using Engine.Core.Assets;
 using ImGuiNET;
 
 namespace Engine.Editor.UI
@@ -125,11 +126,20 @@ namespace Engine.Editor.UI
 
             // Define globalmente qual é o projeto atual
             EditorState.CurrentProjectPath = path;
-
+            AssetManager.ProjectRootPath = EditorState.CurrentProjectPath;
             // --- A MÁGICA AUTOMÁTICA ---
             // Assim que o projeto é reconhecido, forçamos a compilação e injeção na memória RAM!
             Console.WriteLine("[HUB] Carregando projeto e injetando scripts...");
             ScriptCompiler.CompilarELocarScripts();
+            
+            // --- NOVIDADE: RESTAURAR O LAYOUT DAS JANELAS ---
+            string layoutPath = Path.Combine(path, "layout.ini");
+            if (File.Exists(layoutPath))
+            {
+                ImGuiNET.ImGui.LoadIniSettingsFromDisk(layoutPath);
+                Console.WriteLine("[EDITOR] Layout do painel restaurado com sucesso!");
+            }
+            
         }
     }
 }

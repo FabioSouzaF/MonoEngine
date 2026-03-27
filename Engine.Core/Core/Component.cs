@@ -28,4 +28,11 @@ public abstract class Component
     public virtual void Update(GameTime gameTime) { }
     
     public virtual void Draw(SpriteBatch spriteBatch) { }
+    
+    public virtual void OnCollisionEnter(BoxCollider2D other) { }
+    public virtual void OnTriggerEnter(BoxCollider2D other) { }
+    
+    public virtual void OnCollisionEnter(TilemapCollider2D other) { }
+    public virtual void OnTriggerEnter(TilemapCollider2D other) { }
+    
 }

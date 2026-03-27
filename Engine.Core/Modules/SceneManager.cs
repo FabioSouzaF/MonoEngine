@@ -16,7 +16,13 @@ public static class SceneManager
 
     public static void Update(GameTime gameTime)
     {
-        ActiveScene?.Update(gameTime);
+        if (ActiveScene == null) return;
+
+        // Roda a física ANTES dos scripts (como o FixedUpdate da Unity)
+        Physics2DManager.Update(gameTime, ActiveScene);
+
+        // ... (O resto do seu código de ActiveScene.Update(gameTime) continua aqui por baixo)
+        ActiveScene.Update(gameTime);
     }
 
     internal static void Draw(SpriteBatch spriteBatch)

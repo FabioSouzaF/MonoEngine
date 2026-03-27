@@ -18,21 +18,25 @@ public static class RenderManager
         Matrix viewMatrix = camera != null ? camera.GetViewMatrix() : Matrix.Identity;
 
         // Busca todos os renderers ativos na cena
-        // Nota: Futuramente, podemos cachear isso na Scene para não buscar via Reflection todo frame
         var renderers = scene.FindGameObjectsWithComponent<Renderer>()
                              .Select(go => go.GetComponent<Renderer>())
                              .Where(r => r != null && r.Enabled && r.GameObject.IsActive)
                              .ToList();
 
-        // Separa os componentes 2D (SpriteRenderer) e ordena pela camada (Z-Index)
-        var sprites = renderers.OfType<SpriteRenderer>()
-                               .OrderBy(s => s.OrderInLayer)
-                               .ToList();
+        // --- A GRANDE SACADA ---
+        // Pega tanto os Sprites quanto os Tilemaps e cria uma fila única!
+        var renderers2D = renderers.Where(r => r is SpriteRenderer || r is Tilemap)
+                                   .OrderBy(r => 
+                                   {
+                                       // Descobre de quem é o OrderInLayer para organizar o Z-Index
+                                       if (r is SpriteRenderer s) return s.OrderInLayer;
+                                       if (r is Tilemap t) return t.OrderInLayer;
+                                       return 0f; 
+                                   })
+                                   .ToList();
 
         // ---------------------------------------------------------
         // INICIA O BATCH COM A CÂMERA APLICADA
-        // O SamplerState.PointClamp garante que pixel art não fique borrada. 
-        // Se seu jogo for HD, pode mudar para LinearClamp.
         // ---------------------------------------------------------
         spriteBatch.Begin(
             sortMode: SpriteSortMode.Deferred, 
@@ -41,16 +45,16 @@ public static class RenderManager
             depthStencilState: DepthStencilState.None, 
             rasterizerState: RasterizerState.CullNone, 
             effect: null, 
-            transformMatrix: viewMatrix); // <-- A Mágica da Câmera acontece aqui!
+            transformMatrix: viewMatrix); 
 
-        // Desenha todos os sprites já ordenados
-        foreach (var sprite in sprites)
+        // Agora desenhamos TODO MUNDO da lista (O método Draw vem da classe base Component!)
+        foreach (var renderer in renderers2D)
         {
-            sprite.Draw(spriteBatch);
+            renderer.Draw(spriteBatch);
         }
 
         spriteBatch.End();
         
-        // (Futuro: Aqui faremos o loop para MeshRenderer 3D usando GraphicsDevice diretamente)
+        GizmoRenderer.DrawColliders(spriteBatch, SceneManager.ActiveScene, viewMatrix);
     }
 }

@@ -41,3 +41,4 @@
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Editor/obj/Debug/net9.0/Engine.Editor.pdb
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Editor/obj/Debug/net9.0/Engine.Editor.genruntimeconfig.cache
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Editor/obj/Debug/net9.0/ref/Engine.Editor.dll
+/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Editor/obj/Debug/net9.0/Engine.Editor.sourcelink.json

@@ -39,11 +39,13 @@ namespace Engine.Editor.UI
                         SceneManager.LoadScene(new Scene { Name = finalName });
                         EditorState.SelectedObject = null;
                         EditorState.CurrentScenePath = ""; 
+                        EditorState.IsDirty = false;
+                        EditorState.CurrentScenePath = "";
                     }
                     
                     bool isPlaying = EditorState.IsPlaying;
                     if (isPlaying) ImGui.BeginDisabled();
-
+                    
                     if (ImGui.MenuItem("Salvar Cena"))
                     {
                         if (EditorState.IsProjectLoaded && SceneManager.ActiveScene != null)
@@ -57,7 +59,20 @@ namespace Engine.Editor.UI
                                 EditorState.CurrentScenePath = savePath; 
                             }
                             SceneSerializer.SaveToFile(SceneManager.ActiveScene, savePath);
+                            EditorState.IsDirty = false;
                             Console.WriteLine($"[CENA SALVA] Sucesso: {savePath}");
+                        }
+                    }
+                    
+                    ImGui.Separator();
+                    
+                    if (ImGui.MenuItem("Salvar Layout das Janelas"))
+                    {
+                        if (EditorState.IsProjectLoaded)
+                        {
+                            string layoutPath = Path.Combine(EditorState.CurrentProjectPath, "layout.ini");
+                            ImGui.SaveIniSettingsToDisk(layoutPath);
+                            Console.WriteLine("[EDITOR] Layout salvo com sucesso!");
                         }
                     }
 

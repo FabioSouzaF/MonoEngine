@@ -1,4 +1,4 @@
-﻿using Microsoft.Xna.Framework;
+using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using MonoGame.ImGuiNet;
 using Engine.Core;
@@ -14,6 +14,7 @@ namespace Engine.Editor
         private ImGuiRenderer _imGuiRenderer;
         private SpriteBatch _spriteBatch;
         private RenderTarget2D _sceneRenderTarget;
+        
         
         // O nosso novo gerenciador de interface!
         private EditorUIManager _uiManager;
@@ -41,8 +42,8 @@ namespace Engine.Editor
         {
             _spriteBatch = new SpriteBatch(GraphicsDevice);
             _sceneRenderTarget = new RenderTarget2D(GraphicsDevice, 1280, 720, false, SurfaceFormat.Color, DepthFormat.None);
-            Engine.Core.Assets.AssetManager.Initialize(GraphicsDevice);
-
+            AssetManager.Initialize(GraphicsDevice);
+            GizmoRenderer.Initialize(GraphicsDevice);
             SceneManager.LoadScene(new Scene { Name = "Cena Vazia" });
 
             // 1. Interface do Hub (Apenas a tela inicial)
@@ -57,10 +58,18 @@ namespace Engine.Editor
             _uiManager.AddWindow(new HierarchyWindow());
             _uiManager.AddWindow(new InspectorWindow());
             _uiManager.AddWindow(new ContentBrowserWindow());
+            
+            _uiManager.AddWindow(new TilePaletteWindow(_imGuiRenderer));
         }
         
         protected override void Update(GameTime gameTime)
         {
+            // --- ATUALIZAÇÃO DO TÍTULO (DIRTY FLAG) ---
+            string title = "MonoEngine";
+            if (EditorState.IsProjectLoaded) title += $" - {System.IO.Path.GetFileName(EditorState.CurrentProjectPath)}";
+            if (EditorState.IsDirty) title += " *";
+            Window.Title = title;
+
             Time.Update(gameTime);
             Input.Update();
             SceneManager.Update(gameTime);
@@ -136,8 +145,24 @@ namespace Engine.Editor
                 // Cria o espaço de encaixe real
                 ImGuiNET.ImGui.DockSpace(ImGuiNET.ImGui.GetID("MyDockSpace"), new System.Numerics.Vector2(0.0f, 0.0f), ImGuiNET.ImGuiDockNodeFlags.None);
 
+                // --- FEEDBACK VISUAL DE PLAY MODE ---
+                bool isPlayingNow = EditorState.IsPlaying;
+                if (isPlayingNow)
+                {
+                    // Um tom avermelhado sutil nos cabeçalhos e fundos de janela para avisar que é "Play Mode"
+                    ImGuiNET.ImGui.PushStyleColor(ImGuiNET.ImGuiCol.Header, new System.Numerics.Vector4(0.4f, 0.1f, 0.1f, 1.0f));
+                    ImGuiNET.ImGui.PushStyleColor(ImGuiNET.ImGuiCol.HeaderHovered, new System.Numerics.Vector4(0.5f, 0.2f, 0.2f, 1.0f));
+                    ImGuiNET.ImGui.PushStyleColor(ImGuiNET.ImGuiCol.HeaderActive, new System.Numerics.Vector4(0.6f, 0.3f, 0.3f, 1.0f));
+                    ImGuiNET.ImGui.PushStyleColor(ImGuiNET.ImGuiCol.TitleBgActive, new System.Numerics.Vector4(0.3f, 0.1f, 0.1f, 1.0f));
+                }
+
                 // Agora desenhamos o Editor! Todas as janelas vão "nascer" e colar neste DockSpace
                 _uiManager.Draw();
+
+                if (isPlayingNow)
+                {
+                    ImGuiNET.ImGui.PopStyleColor(4);
+                }
 
                 ImGuiNET.ImGui.End();
             }
@@ -145,5 +170,18 @@ namespace Engine.Editor
             _imGuiRenderer.EndLayout();
             base.Draw(gameTime);
         }
+        
+        protected override void UnloadContent()
+        {
+            // Salva o layout das janelas automaticamente quando o utilizador fecha o Editor!
+            if (EditorState.IsProjectLoaded)
+            {
+                string layoutPath = Path.Combine(EditorState.CurrentProjectPath, "layout.ini");
+                ImGuiNET.ImGui.SaveIniSettingsToDisk(layoutPath);
+            }
+            
+            base.UnloadContent();
+        }
+        
     }
 }

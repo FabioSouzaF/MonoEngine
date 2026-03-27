@@ -34,3 +34,4 @@
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/obj/Debug/net9.0/Engine.Runtime.genruntimeconfig.cache
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/obj/Debug/net9.0/ref/Engine.Runtime.dll
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/bin/Debug/net9.0/Newtonsoft.Json.dll
+/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/obj/Debug/net9.0/Engine.Runtime.sourcelink.json

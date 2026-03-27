@@ -18,9 +18,12 @@ namespace Engine.Editor.UI
                 ImGui.PushStyleColor(ImGuiCol.Button, new System.Numerics.Vector4(0.2f, 0.8f, 0.2f, 1f)); 
                 if (ImGui.Button("▶ PLAY", new System.Numerics.Vector2(100, 30)))
                 {
-                    EditorState.SceneBackupJson = SceneSerializer.Serialize(SceneManager.ActiveScene);
+                    EditorState.SceneSnapshot = SceneSerializer.Serialize(SceneManager.ActiveScene);
                     EditorState.PlayMode = EditorPlayMode.Play;
+                    EditorState.IsPlaying = true;
                     EditorState.SelectedObject = null; 
+                    
+                    Physics2DManager.Enabled = true;
                 }
                 ImGui.PopStyleColor();
             }
@@ -29,11 +32,14 @@ namespace Engine.Editor.UI
                 ImGui.PushStyleColor(ImGuiCol.Button, new System.Numerics.Vector4(0.8f, 0.2f, 0.2f, 1f)); 
                 if (ImGui.Button("■ STOP", new System.Numerics.Vector2(100, 30)))
                 {
-                    var restoredScene = SceneSerializer.Deserialize(EditorState.SceneBackupJson);
+                    var restoredScene = SceneSerializer.Deserialize(EditorState.SceneSnapshot);
                     if (restoredScene != null) SceneManager.LoadScene(restoredScene);
                     
                     EditorState.SelectedObject = null;
                     EditorState.PlayMode = EditorPlayMode.Edit;
+                    EditorState.IsPlaying = false;
+                    
+                    Physics2DManager.Enabled = false;
                 }
                 ImGui.PopStyleColor();
             }

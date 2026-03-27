@@ -22,3 +22,4 @@
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/obj/Release/net9.0/linux-x64/Engine.Runtime.pdb
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/obj/Release/net9.0/linux-x64/Engine.Runtime.genruntimeconfig.cache
 /home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/obj/Release/net9.0/linux-x64/ref/Engine.Runtime.dll
+/home/fabio/Documentos/IFRJ/MonoEngine/Engine.Runtime/obj/Release/net9.0/linux-x64/Engine.Runtime.sourcelink.json
